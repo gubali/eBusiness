@@ -1,0 +1,56 @@
+<div class="image-container set-full-height" style="background-image: url('https://cdn-images-1.medium.com/max/1200/1*LTL-3FzSod6Eiwlcd30kng.jpeg'); height: auto;">
+	    
+  <!-- https://demos.creative-tim.com/material-bootstrap-wizard/assets/img/wizard-book.jpg -->
+  <div *ngIf="inValidLogin" class="InvalidLOgin"> InValid Login!</div>
+
+		
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      
+      <div class="only_login" *ngIf="isLoginActive">
+      <div class="fadeIn first">
+        
+        <h3 style="color: #ffffff">Login Here!</h3>
+      </div>
+  
+      
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" [(ngModel)]="ngModelusername">
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="password" [(ngModel)]="ngModeluserpassword">
+        <input type="submit" class="fadeIn fourth" value="Log In" (click) = "login(a,b);" >
+      </form>
+     
+  
+    </div>
+   
+    <div class="only_Register" *ngIf="!isLoginActive">
+      <div class="fadeIn first">
+       
+        <h3 style="color: #ffffff">Register Here!</h3>
+      </div>
+  
+    
+      <form>
+        <input type="text" id="login" class="fadeIn second" name="username" placeholder="UserName" [(ngModel)]="ngModelusername">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="ngModeluserpassword">
+        <input type="submit" class="fadeIn fourth" value="Log In" (click) = "login(a,b);" >
+      </form>
+      
+    </div>
+     
+      <div id="formFooter">
+        <a class="underlineHover" (click)="registerUser()">Register/Login</a>
+      </div>
+    </div>
+  </div>
+
+	    
+	     
+
+	    
+
+		
+
+</div>
+
+

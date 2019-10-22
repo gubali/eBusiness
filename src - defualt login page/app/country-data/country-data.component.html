@@ -1,0 +1,66 @@
+<br />
+<strong>Parent component:) </strong>
+
+<br /><br />
+ <strong>Child component in another component:) 
+ </strong><br />
+ <app-viewchild-exp></app-viewchild-exp>
+ <button (click)="sendMsg()">Send Msg to Child</button>
+ <br /><br />
+
+ <h3 appHoverDirective='red'>Custom Directive with Hostlistener</h3>
+<!-- <p-table #dt [value]="countryService.myData" [paginator]="true" [rows]=10 [columns]="cols" 
+ exportFilename="countryList">
+  <ng-template pTemplate="caption">
+          <div style="text-align: right">        
+              <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+              <input type="text" pInputText size="50" 
+              placeholder="Global Filter" lazy="false" 
+              (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+          </div>
+      </ng-template>
+<ng-template pTemplate="header" let-columns>
+        <th *ngFor="let col of columns">
+                {{col.header}}
+
+            </th>
+</ng-template>
+<ng-template pTemplate="body" let-countryName>
+  <tr>
+      <td>{{countryName.name}}</td>
+      <td>{{countryName.alpha3Code}}</td>
+      <td>{{countryName.borders}}</td>
+      <td><img src="{{countryName.flag}}" title="{{countryName.name}}" style="width:45px;height:auto" /></td>
+  </tr>
+</ng-template>
+</p-table> -->
+<br />
+<!-- <button type="button" pButton  icon="fa fa-file" iconPos="right" 
+label="Export Excel"  cornerStyleClass="left" class="ui-messages-info"
+ (click)="dt.exportCSV()" style="float:left"></button> -->
+<!-- <div class="ui-g-offset-3 ui-grid-col-3">
+    <button type="button" pButton  icon="fa fa-file" iconPos="right" label="Export Excel"  cornerStyleClass="left" class="ui-messages-info" (click)="dt.exportCSV()" style="float:left"></button>
+</div> -->
+<br />
+<br />
+<p-table #ab [columns]="cols1" [value]="cars" exportFilename="carsList">
+    
+    <ng-template pTemplate="header" let-columns>
+        <th *ngFor="let col of columns">
+            {{col.header}}
+        </th>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-car>
+        <tr>
+                <td>{{car.BrandName}}</td>
+             <td>{{car.year}}</td>
+        </tr>
+    </ng-template>
+   
+</p-table>
+<br />
+<button type="button" pButton  icon="fa fa-file" iconPos="right" 
+label="Export Excel"  cornerStyleClass="left" class="ui-messages-info"
+ (click)="ab.exportCSV()" style="float:left"></button>
+

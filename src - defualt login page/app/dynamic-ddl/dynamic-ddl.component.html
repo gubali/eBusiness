@@ -1,0 +1,18 @@
+
+
+<p-dropdown [options]="employes" placeholder="Select a Country" optionLabel="name" [showClear]="true"></p-dropdown>
+<!-- <p>Selected Country: {{selectedCountry? selectedCountry.name:'none' }}</p> -->
+<div class="p-grid">
+  <div class="p-lg-3 p-col-12" *ngFor="let p of lstOfAlbum">
+    <p-card header="Advanced Card"  subheader="Subheader" [style]="{width: '270px'}" styleClass="ui-card-shadow">
+      <p-header>
+          <img src="Card" src="{{p.thumbnailUrl}}">
+          <div class="p-col-12">
+            {{p.title}}
+                  </div>
+      </p-header>
+  
+    </p-card> 
+  </div>
+</div>
+

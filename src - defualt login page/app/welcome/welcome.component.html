@@ -1,0 +1,34 @@
+
+
+<p>
+  welcome works!
+</p>
+
+welcome [UserName]
+<ul>
+  <li><a href="#">Admin</a></li>
+  <li><a href="#">Login</a></li>
+  <li><a href="#">LogOut</a></li>
+
+</ul>
+<select (change)="onChange($event)">
+    <!-- <option [ngValue]="undefined" selected>Select</option> -->
+  <option *ngFor="let c of countries" [value]="c.name" >{{c.name}}</option>
+</select>
+<br />
+<br />
+<select [(ngModel)]="selectedCity" (ngModelChange)="onChange1($event)" >
+    <option *ngFor="let c of cities" [ngValue]="c"> {{c.name}} </option>
+  </select>
+<!-- <button routerLink="/customers">Customers</button>
+<button routerLink="/orders">Orders</button> -->
+<h3>file upload</h3>
+<input type="file" (change)="fileSelected($event)"/> 
+
+<br />
+<div  *ngFor=" let items of listOfExcelFile">
+<a href="{{items.url}}" (click)="downloadFile()">{{items.name}}</a>
+</div>
+<!-- <button type="button" (clik)></button> -->
+
+

@@ -1,0 +1,167 @@
+<div class="container">
+    <div class="well">
+        <form #ff="ngForm">
+            <div class="form-group">
+                <label for="firstName">First Name : </label>
+                <input type="text" required minlength="5" maxlength="15" pattern="[a-zA-Z]+ " ngModel name="firstName"
+                    #firstName="ngModel" (change)="log(firstName)" id="firstName" class="form-control" [(ngModel)]="fName1">
+                <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+                    <div *ngIf="firstName.errors.required">First Name is required!!</div>
+                    <div *ngIf="firstName.errors.minlength">First Name should be minimum
+                        {{firstName.errors.minlength.requiredLength}} charcter!!</div>
+                    <div *ngIf="firstName.errors.pattern">First Name take only string!!</div>
+                    <div *ngIf="firstName.errors.maxlength">First Name should be maximum 10 charcter!!</div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="firstName">Last Name : </label>
+                <input type="text" id="LastName" required ngModel name="lastName1" #lastName1="ngModel" class="form-control"
+                    [(ngModel)]="lName">
+                <div class="alert alert-danger" *ngIf="lastName1.touched && !lastName1.valid">Lat Name is required!!</div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="firstComments">Comments:</label>
+                <textarea class="form-control" required cols="20" rows="10" ngModel name="comments" #comments1="ngModel"
+                    [(ngModel)]="comments"></textarea>
+                <div class="alert alert-danger" *ngIf="comments1.touched && !comments1.valid">Commtes is required!!</div>
+
+            </div>
+            <div class="form-group">
+                <label for="contactMethod">Conatct Method:</label>
+                <select multiple class="form-control" id="countryList"
+                 ngModel name="contactMethod" id="contactMethod">
+                    <option *ngFor="let countryName of countryList" value=" {{countryName.name}}">
+                        {{countryName.name}}
+                    </option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label><input type="checkbox" ngModel name="isSubscribed">Option 1</label>
+                </div>
+            </div>
+            <p>{{ff.value | json }}</p>
+            <div class="form-group">
+                <button class="btn btn-success" (click)="buttonClicked()">Click to insert Data</button>
+            </div>
+
+        </form>
+
+        <h3>NgForm Example</h3>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div ngModelGroup="contact" #contact="ngModelGroup">
+                <div *ngIf="!contact.valid">...</div>
+                <input name="first" ngModel required #first="ngModel">
+                <input name="last" ngModel>
+                <button [disabled]="!contact.valid">Submit</button>
+            </div>
+
+        </form>
+        <p>First name value: {{ first.value }}</p>
+        <p>First name valid: {{ first.valid }}</p>
+        <p>Form value: {{ f.value | json }}</p>
+        <p>Form valid: {{ f.valid }}</p>
+    </div>
+    <p-table [value]="rows">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Comments</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rows let-rowIndex="rowIndex">
+            <tr>
+                <td>{{rowIndex+1}}</td>
+                <td>{{rows.firstName}}</td>
+                <td>{{rows.lastName}}</td>
+                <td>{{rows.comments}}</td>
+                <td>
+                    <button pButton type="button" icon="fa fa-edit" (click)="edit(rows)"></button>
+                    <!-- <input type="checkbox" (change)="showDialog(row)" />  -->
+                </td>
+                <td>
+                    <p-button label="Delete" (click)="onRemove(course)"></p-button>
+                </td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+    <!-- <table class="table table-sm">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Comments</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of rows, let i= index">
+          <td>{{i+1}}</td>
+            <td>{{row.firstName}}</td>
+            <td>{{row.lastName}}</td>
+            <td>{{row.comments}}</td>
+            <td>
+                <form>
+                    <div class="form-group">
+                        <input type="checkbox"   (change)="showDialog()"/>
+                    <button type="button" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Show"></button>
+                    </div>
+                    
+                  </form>
+            </td>
+          </tr>
+    </tbody>
+  </table> -->
+    <p-dialog header="Update" [(visible)]="displayDialog" [modal]="true" [responsive]="true" [width]="350" [minWidth]="200"
+        [minY]="70" [baseZIndex]="10000">
+        <div class="ui-g ui-fluid" *ngIf="copydtaForEdit">
+            <div class="ui-g-12">
+                <div class="ui-inputgroup">
+                    <input type="text" pInputText placeholder="FirstName" name="firstname" [(ngModel)]="copydtaForEdit.firstName">
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-inputgroup">
+                    <input type="text" pInputText placeholder="LastName" name="lastname" [(ngModel)]="copydtaForEdit.lastName">
+                </div>
+            </div>
+            <div class="ui-g-12">
+                <div class="ui-inputgroup">
+                    <textarea rows="5" cols="30" pInputTextarea name="textarea" [(ngModel)]="copydtaForEdit.comments"></textarea>
+
+                </div>
+            </div>
+        </div>
+        <!-- <p-footer>
+            <button type="button" pButton icon="pi pi-check" (click)="saveValues($event)" label="Update Now"></button>
+            <button type="button" pButton icon="pi pi-close" (click)="display=false" label="Cancel" class="ui-button-secondary"></button>
+        </p-footer> -->
+    </p-dialog>
+    <!-- <input type="text" [(ngModel)]="fName" placeholder="id" name="firstName" />
+  <input type="text" [(ngModel)]="lName" placeholder="name" name="lastName" />
+  <input type="text" [(ngModel)]="comments" placeholder="year" name="comments" /> -->
+    <!-- <button (click)="buttonClicked()">Click to Insert New Row</button> -->
+
+    <!-- <table class="table table-responsive table-striped">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>year</th>
+      </tr>
+      <tr *ngFor="let row of rows">
+        <td>{{row.id}}</td>
+        <td>{{row.name}}</td>
+        <td>{{row.year}}</td>
+      </tr>
+    </table> -->
+</div>

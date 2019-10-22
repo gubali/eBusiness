@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6 well">
+        <form class="form-horizontal" role="form" #userForm ="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput"> Name</label>
+                <div class="col-sm-10">
+                   <input name="name" class="form-control" ngModel required #userName="ngModel">
+                </div>
+              </div>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">City</label>
+                <div class="col-sm-10">
+                   <input name="city" ngModel #userCity="ngModel" required class="form-control">
+                  
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-2 control-label" for="textinput">State</label>
+                  <div class="col-sm-10">
+                     <input name="state" ngModel class="form-control" required>	
+                  </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="pull-right">
+                        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Go</button>&nbsp;
+                        <button type="button" (click)="resetUserForm(userForm)" class="btn btn-primary">Reset</button>
+                      </div>
+                    </div>
+                  </div>
+          </form>
+          
+          
+            
+          <div>
+              <p>Form value: <b> {{ userForm.value | json }} </b></p>
+              <p>Form valid: <b> {{ userForm.valid }} </b></p>
+              <p>Form touched: <b> {{ userForm.touched }} </b></p>
+              <p>Form submitted: <b> {{ userForm.submitted }} </b></p>
+            </div>
+            <div>
+              <p>Name value: <b> {{ userName.value }} </b></p>
+              <p>Name valid: <b> {{ userName.valid }} </b></p>
+            </div>
+            <div>
+              <p>City value: <b> {{ userCity.value }} </b></p>
+              <p>City valid: <b> {{ userCity.valid }} </b></p>
+            </div> 
+            <div class="clearfix"></div>
+            loop validation
+            <form #costValueForm ="ngForm" >
+           <table class="table">
+             <thead>
+               <th>Id</th>
+               <th>Name</th>
+               <th>Action</th>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let heroname of countriesName; let i = index">
+                   <td>{{i+1}}</td>
+                   <td>{{heroname.name}}</td>
+                   <td>
+                     
+                      <input name="costVal" class="form-control" ngModel required #userCost="ngModel"
+                       attr.id="txt{{i+1}}">
+                      
+                    </td>
+                  
+                   </tr>
+                   <tr>
+                     <td>&nbsp;</td>
+                     <td>&nbsp;</td>
+                     <td style="float:right;border:0">
+                        <button type="submit" class="btn btn-primary" [disabled]="!costValueForm.valid">Go1</button>
+                     </td>
+                     </tr>
+               </tbody>
+             </table>
+            </form>
+    </div>
+    <div class="col-lg-3"></div>
+    </div>
+</div>

@@ -1,0 +1,214 @@
+
+
+<!-- The content below is only a placeholder and can be replaced.
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul>
+
+<router-outlet></router-outlet> -->
+<div *ngIf="course.length > 0; then courseList else noCourse">
+ 
+  </div>
+  <ng-template #courseList>
+      course  List
+  </ng-template>
+  <!-- <div *ngIf="course.length == 0">
+    course not yet
+  </div> -->
+  <ng-template #noCourse>
+      course not yet
+  </ng-template>
+  <ul class="nav nav-pills">
+    <li [class.active]="viewMode=='map'"><a (click)="viewMode=='map'">A</a></li>
+    <li [class.active]="viewMode=='list'"><a  (click)="viewMode=='list'">B</a></li>
+    </ul>
+    <div [ngSwitch]="viewMode">
+      <div *ngSwitchCase="'map'">A View</div>
+      <div *ngSwitchCase="'list'">B View</div>
+      <div *ngSwitchDefault>Others</div>
+    </div>
+    <button  (click)="onAdd();">Add</button>
+    <div *ngFor="let course of listOfSkills" style="text-align:center">
+      <p><span>{{course.id}}</span> &nbsp;<span>{{course.name}}</span>
+        <button  (click)="onRemove(course);">Remove</button>
+      </p>
+      
+      </div>
+      <br />
+      <strong>Track By::  </strong>
+      <button  (click)="loadCource()">Load Courses</button>
+      <div *ngFor="let skill of skillsTest;" style="text-align:center">
+          <p><span>{{skill.id}}</span><span>{{skill.name}}</span>
+            
+          </p>
+          
+          </div>
+          <br /><br />
+          <div class="container">
+            <h4>Custome Directive</h4>
+            <input type="text" class="form-control" appInputFormat />
+            <br/>
+            <contact-form></contact-form>
+          </div>
+
+          <h3>Ng prime</h3>
+
+          <h3 class="first">Addons</h3>
+          <div class="ui-g ui-fluid">
+              <div class="ui-g-12 ui-md-4">
+                  <div class="ui-inputgroup">
+                      <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                      <input type="text" pInputText placeholder="Username">         
+                  </div>
+              </div>
+          </div>
+
+<div class="container">
+    <h3 class="first">Addons</h3>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+                <input type="text" pInputText placeholder="Username">         
+            </div>
+        </div>
+        
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">$</span>
+                <input type="text" pInputText placeholder="Price">   
+                <span class="ui-inputgroup-addon">.00</span>      
+            </div>
+        </div>
+                
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">www</span>
+                <input type="text" pInputText placeholder="Website">      
+            </div>
+        </div>
+    </div>
+        
+    <h3>Multiple Addons</h3>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><i class="fa fa-credit-card"></i></span>  
+                <span class="ui-inputgroup-addon"><i class="fa fa-cc-visa"></i></span>   
+                <input type="text" pInputText placeholder="Price"> 
+                <span class="ui-inputgroup-addon">$</span>  
+                <span class="ui-inputgroup-addon">.00</span>      
+            </div>
+        </div>
+    </div>
+    
+    <h3>Button Addons</h3>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <button pButton type="button" label="Search"></button>
+                <input type="text" pInputText placeholder="Keyword">         
+            </div>
+        </div>
+        
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <input type="text" pInputText placeholder="Keyword">   
+                <button pButton type="button" icon="fa fa-superpowers" class="ui-button-warn"></button>      
+            </div>
+        </div>
+                
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <button pButton type="button" icon="pi pi-check" class="ui-button-success"></button>    
+                <input type="text" pInputText placeholder="Vote">   
+                <button pButton type="button" icon="pi pi-close" class="ui-button-danger"></button>      
+            </div>
+        </div>
+    </div>
+    
+    <h3>Checkbox and RadioButton</h3>
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><p-checkbox></p-checkbox></span>
+                <input type="text" pInputText placeholder="Username">         
+            </div>
+        </div>
+        
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <input type="text" pInputText placeholder="Price">   
+                <span class="ui-inputgroup-addon"><p-radioButton></p-radioButton></span>      
+            </div>
+        </div>
+                
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon"><p-checkbox></p-checkbox></span>
+                <input type="text" pInputText placeholder="Website">      
+                <span class="ui-inputgroup-addon"><p-radioButton></p-radioButton></span> 
+            </div>
+        </div>
+    </div>
+
+    <h3 class="first">Basic</h3>
+<!-- <div class="ui-g" style="width:250px;margin-bottom:10px">
+    <div class="ui-g-12"><p-radioButton name="group1" value="Option 1" label="Option 1" [(ngModel)]="val1" inputId="opt1"></p-radioButton></div>
+    <div class="ui-g-12"><p-radioButton name="group1" value="Option 2" label="Option 2" [(ngModel)]="val1" inputId="opt2"></p-radioButton></div>
+    <div class="ui-g-12"><p-radioButton name="group1" value="Option 3" label="Option 3" [(ngModel)]="val1" inputId="opt3"></p-radioButton></div>
+</div>
+Selected Value = {{val1||'none'}} -->
+
+<h3>Preselection</h3>
+<!-- <div class="ui-g" style="width:250px;margin-bottom:10px">
+    <div class="ui-g-12"><p-radioButton name="group2" value="Option 1" label="Option 1" [(ngModel)]="val2" inputId="preopt1"></p-radioButton></div>
+    <div class="ui-g-12"><p-radioButton name="group2" value="Option 2" label="Option 2" [(ngModel)]="val2" inputId="preopt2"></p-radioButton></div>
+    <div class="ui-g-12"><p-radioButton name="group2" value="Option 3" label="Option 3" [(ngModel)]="val2" inputId="preopt3"></p-radioButton></div>
+</div>
+Selected Value = {{val2||'none'}} -->
+<br />
+<h3>Multiple</h3>
+<!-- <span class="ui-fluid">
+    <p-autoComplete [(ngModel)]="countries" [suggestions]="filteredCountriesMultiple" (completeMethod)="filterCountryMultiple($event)" styleClass="wid100"
+        [minLength]="1" placeholder="Countries" field="name" [multiple]="true">
+    </p-autoComplete>
+</span> -->
+<!-- <ul>
+    <li *ngFor="let c of countries">{{c.name}}</li>
+</ul> -->
+
+<!-- <p-menu [model]="items"></p-menu> -->
+
+<h3>Popup</h3>
+asas
+<!-- <p-menu #menu [popup]="true" [model]="items"></p-menu> -->
+<!-- <button type="button" pButton icon="pi pi-bars" label="Show" 
+(click)="menu.toggle($event)" style="margin-bottom:3%"></button>
+<button type="button" pButton icon="pi pi-bars" label="Show" 
+(click)="menu.toggle($event)" style="margin-left:3%"></button> -->
+
+
+
+  </div>
+**********************************
+<!-- ADDD:: <div *ngFor="let d of countryService">
+{{d.displayValue}}
+ </div> -->
+  <!-- <app-table-demo></app-table-demo> -->
+

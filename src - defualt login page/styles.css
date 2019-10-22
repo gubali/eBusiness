@@ -1,0 +1,21 @@
+body{
+    font-family: 'Roboto', sans-serif !important; 
+}
+/* You can add global styles to this file, and also import other style files */
+.form-control.ng-invalid.ng-touched{
+border-left: 5px solid red;
+}
+body .ui-menubar{
+    padding: 0;
+    background-color: #0076CE !important;
+     border: 1px solid #0076CE !important; 
+    color: #fff;
+    border-radius: 0 !important;
+}
+body .ui-menubar .ui-menuitem-link .ui-menuitem-text, body .ui-menubar .ui-menuitem-link{
+    color: #ffffff !important;
+}
+body .ui-menubar .ui-menuitem.ui-menuitem-active > .ui-menuitem-link, body .ui-menubar .ui-submenu-list{
+    background-color: #0076CE !important;
+    border:none !important;
+}

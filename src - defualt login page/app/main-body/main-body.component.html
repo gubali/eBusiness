@@ -1,0 +1,23 @@
+<p>
+  main-body works!
+</p>
+
+<!--ng Style with example-->
+<button [style.backgroundColor]="canvasColor ? 'blue' : 'gray'" 
+[style.fontWeight]="canvasColor ? 'bold' : 'normal'" 
+[style.color]="canvasColor ? 'white' : 'black'">Save Now</button>
+<br />
+<button [ngStyle]="{
+  'backgroundColor':canvasColor ? 'navy' : 'gray',
+  'fontWeight':canvasColor ? 'bold' : 'normal',
+  'color':canvasColor ? 'white' : 'black'
+}">Save Now</button>
+<br />
+<div class="clearfix"></div>
+<br />
+<div class="col-lg-5">
+  <input 
+    type="text"
+    class="googleSearch form-control"
+    placeholder="Type to search..">
+</div>

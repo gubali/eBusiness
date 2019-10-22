@@ -1,0 +1,6 @@
+<br />
+<input type="text" class="form-control" (keyup.enter)="createPost(inTitle)" #inTitle />
+<p *ngFor="let items of posts; let i = index">
+ {{i+1}} - {{items.title}} <a href="javascript:void(0);" (click)="updatePost(items);"> Update</a>
+ <a href="javascript:void(0);" (click)="deletePost(items);"> Delete</a>
+</p>

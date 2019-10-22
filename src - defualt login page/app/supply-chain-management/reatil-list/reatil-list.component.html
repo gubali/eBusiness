@@ -1,0 +1,21 @@
+<p>
+  reatil-list works!
+</p>
+<span [innerHTML]="fname"></span>
+
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-md-4">
+      <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+          <input type="text" pInputText placeholder="Username" [(ngModel)]="txt">         
+      </div>
+      <p>{{txt}}</p>
+      <br />
+      <p>2 way binding with alert</p>
+      <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+        <input type="text" pInputText placeholder="Username" > 
+        <!-- <input type="text" pInputText placeholder="Username" [ngModel]="alertmsg" (ngModelChange)="alertmsg=$event" >  -->
+        <!-- <p>Welcome, {{alertmsg}}</p>         -->
+    </div>
+  </div>
