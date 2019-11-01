@@ -7,6 +7,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { RegistrationComponent } from './authentication/registration/registration.component';
 import { DefaultIndexComponent } from './default-index/default-index.component';
 import {InputTextModule} from 'primeng/inputtext';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {InputTextModule} from 'primeng/inputtext';
     AppRoutingModule,
     InputTextModule,
     ReactiveFormsModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [],
