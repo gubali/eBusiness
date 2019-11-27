@@ -48,4 +48,8 @@ userDate:any
     
 console.log(this.registrationForm.controls)
   }
+  inserIntoTable(){
+    debugger;
+    alert('button clicked!');
+  }
 }

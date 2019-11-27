@@ -8,6 +8,8 @@ import { RegistrationComponent } from './authentication/registration/registratio
 import { DefaultIndexComponent } from './default-index/default-index.component';
 import {InputTextModule} from 'primeng/inputtext';
 import { HttpClientModule } from '@angular/common/http';
+import { LeftNavigationComponent } from './left-navigation/left-navigation.component';
+import { HighlightTextDirective } from '../app/directive/highlight-text.directive';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegistrationComponent,
     DefaultIndexComponent,
+    LeftNavigationComponent,
+    HighlightTextDirective,
     
   ],
   imports: [
