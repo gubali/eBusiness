@@ -1,0 +1,19 @@
+<!-- {{itemsList.name}}
+{{itemsList.id}} -->
+Name: {{nameVar}}  Company Name: {{companyName}}
+<table style="width: 100%;">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let cmnnt of componentVar" style="text-align: center;">
+      <td>{{cmnnt?.id}}</td>
+      <td>{{cmnnt?.name}}</td>
+      <td><a href="#">Edit</a></td>
+      <td><a href="#">Delete</a></td>
+    </tr>
+  </table>
+<button (click)="fireEvent()">Send Event</button>
+  

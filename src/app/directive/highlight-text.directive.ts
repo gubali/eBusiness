@@ -4,19 +4,22 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[appHighlightText]'
 })
 export class HighlightTextDirective {
-
-  constructor(private el:ElementRef) {
+  private el: any;
+  constructor( el: ElementRef) {
    // el.nativeElement.style.backgroundColor = 'red';
+   this.el = el;
    }
-   @HostListener('mouseenter') onmouseenter(){
+   @HostListener('mouseenter') onmouseenter() {
      this.highLight('yellow', 'green');
    }
-   @HostListener('mouseleave') onmouseleave(){
+   @HostListener('mouseleave') onmouseleave() {
     this.highLight(null, null);
   }
-private highLight(color:string, txtColor:string)
-{
+private highLight(color: string, txtColor: string) {
   this.el.nativeElement.style.backgroundColor =  color;
-  this.el.nativeElement.style.color = txtColor
+  this.el.nativeElement.style.color = txtColor;
+}
+fnAlert() {
+  alert('hello World!');
 }
 }

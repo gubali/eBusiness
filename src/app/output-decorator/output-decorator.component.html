@@ -1,0 +1,28 @@
+Child to Parent Date::: <h4>{{message}}</h4>
+<div>
+    <!-- <app-indut-decorator  [componentVar]="componentDetails" [nameVar]="username" [companyName]="companyname" 
+    (inpudtDecChild)="message=$event"></app-indut-decorator> -->
+    <app-indut-decorator [componentVar]="componentDetails" [nameVar]="username" [companyName]="companyname"
+        (inpudtDecChild)="$event" (inpudtDecChild)="message=$event"></app-indut-decorator>
+</div>
+<br />
+
+
+
+<div style="border:1px solid #ddd; padding:10px; background-color: #fff;">
+    <p-accordion>
+        <div *ngFor="let item of listOfAccordHeader">
+            <p-accordionTab header="{{item.name}}">
+               <p *ngIf="item.path == 'abc'">
+                <app-registration></app-registration>
+               </p>
+               <p *ngIf="item.path == 'abcd'">
+                <app-login></app-login>
+               </p>
+            </p-accordionTab>
+        </div>
+
+    </p-accordion>
+    <!-- <app-registration></app-registration> -->
+</div>
+<!-- *ngFor="let cmnnt of componentDetails" -->

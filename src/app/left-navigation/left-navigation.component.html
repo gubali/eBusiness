@@ -1,1 +1,12 @@
-<p>left-navigation works!</p>
+<div id="layout-sidebar">
+    <div class="nav-left-icon">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="layout-menu" *ngFor="let item of listItems">
+        <a id="menu_input" id="{{item.ID}}" routerLink="{{item.Url}}" >
+            <span>{{item.Name}}</span>
+          
+        </a>
+
+    </div>
+</div>
