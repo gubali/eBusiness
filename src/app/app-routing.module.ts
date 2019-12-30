@@ -5,6 +5,8 @@ import { RegistrationComponent } from '../app/authentication/registration/regist
 import { DefaultIndexComponent } from '../app/default-index/default-index.component';
 import { IndutDecoratorComponent } from '../app/indut-decorator/indut-decorator.component';
 import { OutputDecoratorComponent } from '../app/output-decorator/output-decorator.component';
+import { WorldTourComponent } from './world-tour/world-tour.component';
+import { ViewChildComponent } from "../app/view-child/view-child.component";
 
 const routes: Routes = [
   {
@@ -24,6 +26,12 @@ const routes: Routes = [
   },
   {
     path: 'register', component: RegistrationComponent
+  },
+  {
+    path:'worldTour', component:WorldTourComponent
+  },
+  {
+    path:'viewChild', component:ViewChildComponent
   }
 ];
 

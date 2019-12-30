@@ -3,12 +3,17 @@ Child to Parent Date::: <h4>{{message}}</h4>
     <!-- <app-indut-decorator  [componentVar]="componentDetails" [nameVar]="username" [companyName]="companyname" 
     (inpudtDecChild)="message=$event"></app-indut-decorator> -->
     <app-indut-decorator [componentVar]="componentDetails" [nameVar]="username" [companyName]="companyname"
-        (inpudtDecChild)="$event" (inpudtDecChild)="message=$event"></app-indut-decorator>
+        (inpudtDecChild)="$event" (inpudtDecChild)="message=$event" #imChildRef (greetEventFromChild)="greet($event)"></app-indut-decorator>
 </div>
 <br />
+<p appHighlightText>Below data render <strong>(Child component)</strong>  as child reference and its methods "imChildRef"</p>
 
-
-
+<strong>Varable data coming from Child to Parent using TempRef::</strong> {{imChildRef.companyType}} 
+<button (click)="imChildRef.greetUser()">Get company Name</button>
+<br />
+<br />  
+<br />
+<br />
 <div style="border:1px solid #ddd; padding:10px; background-color: #fff;">
     <p-accordion>
         <div *ngFor="let item of listOfAccordHeader">

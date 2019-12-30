@@ -15,6 +15,9 @@ import { IndutDecoratorComponent } from './indut-decorator/indut-decorator.compo
 import { OutputDecoratorComponent } from './output-decorator/output-decorator.component';
 import {AccordionModule} from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WorldTourComponent } from './world-tour/world-tour.component';
+import { ViewChildComponent } from './view-child/view-child.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserNameValidationDirective,
     IndutDecoratorComponent,
     OutputDecoratorComponent,
+    WorldTourComponent,
+    ViewChildComponent,
+   
 
   ],
   imports: [

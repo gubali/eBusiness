@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { IndutDecoratorComponent } from "../indut-decorator/indut-decorator.component";
 
 @Component({
   selector: 'app-output-decorator',
   templateUrl: './output-decorator.component.html',
   styleUrls: ['./output-decorator.component.css']
 })
-export class OutputDecoratorComponent implements OnInit {
+export class OutputDecoratorComponent implements OnInit, AfterViewInit {
+ @ViewChild('IndutDecoratorComponent', {static:true})  childCompRef:IndutDecoratorComponent
  username = 'asif';
  companyname = 'Wipro Digital';
  message = '';
@@ -27,5 +29,10 @@ export class OutputDecoratorComponent implements OnInit {
 
   ngOnInit() {
   }
-
+ngAfterViewInit(){
+  this.childCompRef.keyText = "Message from Parent (Output Decor) to Child (Indut-decor)";
+}
+greet(name: string) {
+  alert('Hey ' + name);
+}
 }

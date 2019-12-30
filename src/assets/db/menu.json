@@ -7,5 +7,16 @@
     "ID": "002",
     "Name": "Out Put component",
     "Url": "outputComponent" 
+    
+},
+{
+    "ID": "003",
+    "Name": "worldTour",
+    "Url": "worldTour"
+},
+{
+    "ID": "004",
+    "Name": "View Child",
+    "Url": "viewChild"
 }
 ]
