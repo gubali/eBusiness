@@ -18,5 +18,10 @@
     "ID": "004",
     "Name": "View Child",
     "Url": "viewChild"
+},
+{
+    "ID": "005",
+    "Name": "MultiSelect from One Array to Other",
+    "Url": "CopyClipboardComponent"
 }
 ]

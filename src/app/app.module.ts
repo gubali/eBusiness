@@ -17,7 +17,8 @@ import {AccordionModule} from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WorldTourComponent } from './world-tour/world-tour.component';
 import { ViewChildComponent } from './view-child/view-child.component';
-
+import { CopyClipboardComponent } from './copy-clipboard/copy-clipboard.component';
+import {TableModule} from 'primeng/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { ViewChildComponent } from './view-child/view-child.component';
     OutputDecoratorComponent,
     WorldTourComponent,
     ViewChildComponent,
+    CopyClipboardComponent,
    
 
   ],
@@ -42,6 +44,7 @@ import { ViewChildComponent } from './view-child/view-child.component';
     HttpClientModule,
     FormsModule,
     AccordionModule,
+    TableModule,
     BrowserAnimationsModule
   ],
   providers: [],

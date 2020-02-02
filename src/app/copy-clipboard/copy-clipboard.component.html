@@ -1,0 +1,137 @@
+<div class="main-wrapper">
+    <div class="ui-g-5">
+        <select class="form-control" [ngModel]="selectedToAdd" multiple name="myselecttsms2"
+            (ngModelChange)="chosenCars($event)">
+            <option *ngFor="let car of cars" [ngValue]="car">{{car.name}}</option>
+        </select>
+    </div>
+    <div class="ui-g-2">
+
+        <button (click)="assigne()">Assigne</button>
+
+        <button (click)="unassigne()">Unassigne</button>
+
+
+    </div>
+    <div class="ui-g-5">
+
+        <select class="form-control" [ngModel]="selectedToRemove" multiple name="myselecttsms"
+            (ngModelChange)="chosenCarsToRemove($event)">
+            <option *ngFor="let car of selectedCars" [ngValue]="car">{{car.name}}</option>
+        </select>
+
+    </div>
+
+    <br /><br />
+
+    <p-table [columns]="cols" [value]="myCar?.data" dataKey="order">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <!-- <th style="width: 3em"></th> -->
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+            <tr>
+                <td>
+                    <a href="#" [pRowToggler]="rowData">
+                        <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                    </a>
+                    {{rowData.order}}
+                </td>
+                <td>
+
+                    {{rowData.vin}}
+                </td>
+                <td>
+
+                    {{rowData.year}}
+                </td>
+                <td>
+
+                    {{rowData.brand}}
+                </td>
+                <td>
+
+                    {{rowData.color}}
+                </td>
+                <td>
+
+                    {{rowData.location}}
+                </td>
+                <!-- <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td> -->
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr>
+                
+                <td *ngFor="let col of columns">
+                    <div [ngClass]="rowData[col.field] >2010 ? 'testTdClass' : null" > {{rowData[col.field]}}</div>
+                </td>
+                <!-- <td style="padding: 0;   margin: 0; vertical-align: baseline;">
+                    <div style="border-top: 2px solid red; padding:10px;"> {{sale.vin}}</div>
+
+                </td>
+                <td style="padding: 0;   margin: 0; vertical-align: baseline;">
+                    <div style="border-top: 2px solid #679125; padding:10px;"> {{sale.year}}</div>
+
+                </td>
+                <td style="padding: 0;   margin: 0; vertical-align: baseline;">
+                    <div style="border-top: 2px solid #eeeeee; padding:10px;"> {{sale.brand}}</div>
+
+                </td>
+                <td style="padding: 0;   margin: 0; vertical-align: baseline;">
+                    <div style="border-top: 2px solid yellowgreen; padding:10px;"> {{sale.color}}</div>
+
+                </td>
+                <td style="padding: 0;   margin: 0; vertical-align: baseline;">
+                    <div style="border-top: 2px solid yellowgreen; padding:10px;"> {{sale.location}}</div>
+
+                </td> -->
+            </tr>
+            <!-- <tr>
+                <td [attr.colspan]="columns.length + 1">
+                    <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                        <div class="ui-g-12 ui-md-3" style="text-align:center">
+                            <img [attr.alt]="rowData.brand" src="assets/showcase/images/demo/car/{{rowData.brand}}.png">
+                        </div>
+                        <div class="ui-g-12 ui-md-9">
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <b>Vin:</b> {{rowData.vin}}
+                                </div>
+                                <div class="ui-g-12">
+                                    <b>Year:</b> {{rowData.brand}}
+                                </div>
+                                <div class="ui-g-12">
+                                    <b>Brand:</b> {{rowData.year}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td> 
+            </tr>-->
+        </ng-template>
+        <ng-template pTemplate="footer" let-col>
+            <tr>
+                <td>
+                </td>
+                <td>
+                    <div style="border-top: 2px solid #555555; padding: 2px;" class="footer-text-div"> {{ col.year}}
+                    </div>
+
+                </td>
+                <td>
+                    <div style="border-top: 2px solid #555555; padding: 2px;" class="footer-text-div"> {{ col.year}}
+                    </div>
+
+                </td>
+            </tr>
+        </ng-template>
+
+    </p-table>
+</div>

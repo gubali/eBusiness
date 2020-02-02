@@ -7,6 +7,7 @@ import { IndutDecoratorComponent } from '../app/indut-decorator/indut-decorator.
 import { OutputDecoratorComponent } from '../app/output-decorator/output-decorator.component';
 import { WorldTourComponent } from './world-tour/world-tour.component';
 import { ViewChildComponent } from "../app/view-child/view-child.component";
+import {CopyClipboardComponent  } from "../app/copy-clipboard/copy-clipboard.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,9 @@ const routes: Routes = [
   },
   {
     path:'viewChild', component:ViewChildComponent
+  },
+  {
+    path:'CopyClipboardComponent', component:CopyClipboardComponent
   }
 ];
 
