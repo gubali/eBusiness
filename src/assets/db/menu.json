@@ -1,7 +1,7 @@
 [{
     "ID": "001",
    "Name": "Input Directive",
-    "Url": "inputComponent"
+    "Url": "inputComponent1"
 },
 {
     "ID": "002",
@@ -23,5 +23,10 @@
     "ID": "005",
     "Name": "MultiSelect from One Array to Other",
     "Url": "CopyClipboardComponent"
+},
+{
+    "ID": "006",
+    "Name": "Primeng Table Exp",
+    "Url": "worldTour"
 }
 ]

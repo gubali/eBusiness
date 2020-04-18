@@ -24,17 +24,25 @@
 
     <br /><br />
 
-    <p-table [columns]="cols" [value]="myCar?.data" dataKey="order">
+    <p-table [columns]="cols" [value]="myCar?.data" dataKey="order" rowExpandMode="single"
+        (onRowExpand)="onRowExpand($event)">
         <ng-template pTemplate="header" let-columns>
             <tr>
-                <!-- <th style="width: 3em"></th> -->
+                <!-- <th style="width: 3em">
+
+                    (onRowExpand)="selectedrowForClick($event)" #row (onRowCollapse)="onRowCollapse(this)"
+                </th> -->
                 <th *ngFor="let col of columns">
                     {{col.header}}
                 </th>
             </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
-            <tr>
+
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns" let-rowIndex="rowIndex">
+            <!-- [ngClass]="IsActive==true? 'boredr-left': ''" -->
+            <!-- <tr id="{{rowIndex}}" [ngClass]="expanded  ? 'boredr-left': 'ssasassas'"> -->
+            <tr id="{{rowIndex}}" [ngClass]="expanded  ? 'boredr-left': 'ssasassas'">
+
                 <td>
                     <a href="#" [pRowToggler]="rowData">
                         <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
@@ -50,8 +58,13 @@
                     {{rowData.year}}
                 </td>
                 <td>
+                    <div *ngFor="let item of rowData?.brand; let i=index">
+                        <p *ngFor="let itemname of item?.name"> {{itemname}}
 
-                    {{rowData.brand}}
+                        </p>
+
+                    </div>
+
                 </td>
                 <td>
 
@@ -68,9 +81,16 @@
         </ng-template>
         <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
             <tr>
-                
+
                 <td *ngFor="let col of columns">
-                    <div [ngClass]="rowData[col.field] >2010 ? 'testTdClass' : null" > {{rowData[col.field]}}</div>
+                    <div [ngClass]="rowData[col.field] >2010 ? 'testTdClass' : 'defaultCss'" *ngIf="checkTypeOf(rowData[col.field]); else notShow"> 
+                     <p *ngFor="let col1 of rowData[col.field]">    {{col1}}['name']</p>
+                    </div>
+                    <ng-template #notShow>
+                        <p  [ngClass]="rowData[col.field] >2010 ? 'testTdClass' : 'defaultCss'" >
+                            {{rowData[col.field]}}
+                        </p>
+                      </ng-template>
                 </td>
                 <!-- <td style="padding: 0;   margin: 0; vertical-align: baseline;">
                     <div style="border-top: 2px solid red; padding:10px;"> {{sale.vin}}</div>
@@ -116,22 +136,7 @@
                 </td> 
             </tr>-->
         </ng-template>
-        <ng-template pTemplate="footer" let-col>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <div style="border-top: 2px solid #555555; padding: 2px;" class="footer-text-div"> {{ col.year}}
-                    </div>
 
-                </td>
-                <td>
-                    <div style="border-top: 2px solid #555555; padding: 2px;" class="footer-text-div"> {{ col.year}}
-                    </div>
-
-                </td>
-            </tr>
-        </ng-template>
 
     </p-table>
 </div>

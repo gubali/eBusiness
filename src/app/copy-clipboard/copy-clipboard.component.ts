@@ -2,12 +2,12 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ICity } from "../../app/interfaces/carInterface";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 export interface ICar {
-  order:number;
-  vin:string;
-  year:string;
-  brand:string;
-  color:string;
-  location:string
+  order: number;
+  vin: string;
+  year: string;
+  brand: string;
+  color: string;
+  location: string
 
 }
 @Component({
@@ -24,7 +24,12 @@ export class CopyClipboardComponent implements OnInit {
   selectedToAdd: ICity[] = [];
   selectedToRemove: ICity[] = [];
   cols: any[];
-  myCar: ICar[]
+  myCar: ICar[];
+  expandedRows: {} = {};
+  public isRowSelected: number;
+  selectedRow:number;
+  prevRowIndex:string;
+  currentRowIndex:string
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -39,14 +44,20 @@ export class CopyClipboardComponent implements OnInit {
     ];
     this.http.get('./assets/db/car.json').subscribe(
       (data: ICar[]) => {
-       
+
         this.myCar = data;
       },
       (err: HttpErrorResponse) => {
         console.log(err.message);
       }
     );
+//default
+const thisRef = this;
+// this.myCar.forEach(function(car) {
+//   thisRef.expandedRows[car.order] = true;
+// });
 
+this.expandedRows = Object.assign({}, this.expandedRows);
   }
 
   chosenCars(cars) {
@@ -74,7 +85,38 @@ export class CopyClipboardComponent implements OnInit {
     this.selectedToRemove = [];
   }
 
-  //dynamic table
+//   selectedrowForClick(index) {
+//     this.isRowSelected = index.data.order-1;
+//     console.log(index.data.order-1);
+    
+//   //   if (index.data.order == 1) {
+    
+//   //    this.IsActive = true;
+    
+     
+//   //  } else {
+     
+//   //  }
 
+//   console.log(index);
+  
+//   }
+//   onRowCollapse(row){
+//     console.log(row);
+   
+// }
+onRowExpand(event){
+console.log(event);
+let selectedRowItems = event.originalEvent.path[3];
+ this.prevRowIndex = selectedRowItems.rowIndex;
+ console.log("Row Index" + this.prevRowIndex );
+  
+}
+checkTypeOf(a){
+if (typeof(a) == 'object') {
+  return true;
+  
+}
 
+}
 }

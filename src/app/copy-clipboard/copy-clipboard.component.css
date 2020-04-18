@@ -28,3 +28,6 @@ select[multiple], select[size] {
 .main-wrapper .ui-table .ui-table-tbody > tr > td:first-child div{
     display: none
 }
+.boredr-left{
+    border-left: 3px solid red;
+}

@@ -9,6 +9,7 @@ import { WorldTourComponent } from './world-tour/world-tour.component';
 import { ViewChildComponent } from "../app/view-child/view-child.component";
 import {CopyClipboardComponent  } from "../app/copy-clipboard/copy-clipboard.component";
 
+
 const routes: Routes = [
   {
     path: 'defaultIndex', component: DefaultIndexComponent
@@ -20,7 +21,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'inputComponent', component: IndutDecoratorComponent
+    path: 'inputComponent1', component: IndutDecoratorComponent
   },
   {
     path: 'outputComponent', component: OutputDecoratorComponent
@@ -38,7 +39,6 @@ const routes: Routes = [
     path:'CopyClipboardComponent', component:CopyClipboardComponent
   }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
